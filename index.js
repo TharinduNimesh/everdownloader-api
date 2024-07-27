@@ -6,13 +6,12 @@ import ytdl from "ytdl-core";
 const app = express();
 const config = { workdir: "./public/downloads" };
 const ytDlp = new YtDlp(config);
-const PORT = 8000;
-const APP_URL = `http://localhost:${PORT}`;
+const PORT = 3000;
+const APP_URL = `https://download.evermuzic.me`;
 
 app.use(
   cors({
-    // origin: ["https://evermuzic.me", "http://localhost:3000"],
-    origin: "*",
+    origin: ["https://evermuzic.me", "http://localhost:3000"],
   })
 );
 app.use(express.static("public"));
