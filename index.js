@@ -29,8 +29,7 @@ app.get("/api/download", async (req, res) => {
       url: videoURL,
       format: "ba",
     });
-    res.download(path.toString());
-    return res.send("Downloaded");
+    return res.download(path.toString());
   } catch (error) {
     console.error(error);
     res.status(500).send("Error downloading video");
