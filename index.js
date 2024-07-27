@@ -10,7 +10,7 @@ const ytDlp = new YtDlp(config);
 app.use(
   cors({
     origin: ["https://evermuzic.me", "http://localhost:3000"],
-  }),
+  })
 );
 
 app.get("/api/download", async (req, res) => {
@@ -20,7 +20,7 @@ app.get("/api/download", async (req, res) => {
       {
         message: "Invalid Query",
       },
-      404,
+      404
     );
   }
   const videoURL = `https://www.youtube.com/watch?v=${videoId}`;
@@ -29,7 +29,8 @@ app.get("/api/download", async (req, res) => {
       url: videoURL,
       format: "ba",
     });
-    return res.download(path.toString());
+    res.download(path.toString());
+    return res.send("Downloaded");
   } catch (error) {
     console.error(error);
     res.status(500).send("Error downloading video");
